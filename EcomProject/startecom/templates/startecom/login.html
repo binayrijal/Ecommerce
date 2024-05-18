@@ -1,0 +1,39 @@
+{%extends 'startecom/base.html' %}
+
+{%block title%}Login {%endblock%}
+
+{%block content%}
+<div class="w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-xl">
+<h1 class="mb-6 text-3xl">Login Form</h1>
+
+<form method="post" action=".">
+ {% csrf_token %}
+   {{form.non_field_errors}}
+   <div class="mb-5">
+    <label class="inline-block-mb-2">Username</label><br>
+    {{form.username}}
+   </div>
+  
+   <div class="mb-5">
+    <label class="inline-block-mb-2">password</label><br>
+    {{form.password}}
+   </div>
+  
+   {%if form.errors or form.non_field_errors%}
+   <div class="mb-5 p-6 bg-red-100 rounded-xl">
+    {%for fields in form%}
+
+     {{fields.errors}}
+
+    {%endfor%}
+
+   </div>
+
+   {%endif%}
+<button class=" px-8 text-lg bg-teal-500 rounded-xl hover:bg-teal-700" >Submit</button>
+    
+</form>
+
+
+</div>
+{%endblock%}

@@ -1,0 +1,22 @@
+{% extends 'startecom/base.html' %}
+
+{% block title %} Inbox {%endblock%}
+
+{%block content%}
+<h1 class="mb-6 text-3xl">Inbox</h1>
+
+<div class="space-y-6">
+    {% for conversation in conversations%}
+    <a href="#">
+        <div class="p-6 flex bg-gray-100 round-xl">
+            <div class="pr-6">
+                {{communication.com_item.image.url}}
+            </div>
+        </div>
+    </a>
+
+    {%endfor%}
+</div>
+
+
+{%endblock%}

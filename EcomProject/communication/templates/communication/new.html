@@ -1,0 +1,30 @@
+{% extends 'startecom/base.html' %}
+
+{% block title %} Message {%endblock%}
+
+{%block content%}
+<h1 class="mb-6 text-3xl">Message</h1>
+<form method="post" action=".">
+    {% csrf_token %}
+   
+      <div class="space-y-4">
+      {{form.as_p}}
+      </div>
+   
+      {%if form.errors or form.non_field_errors%}
+      <div class="mb-5 p-6 bg-red-100 rounded-xl">
+       {%for fields in form%}
+   
+        {{fields.errors}}
+   
+      {%endfor%}
+   
+      </div>
+   
+      {%endif%}
+      <button class=" px-8 text-lg bg-teal-500 rounded-xl hover:bg-teal-700" >Send</button>
+       
+</form>
+
+
+{%endblock%}
